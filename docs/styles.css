@@ -1,0 +1,79 @@
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.height-95 {
+  height: 95vh;
+}
+
+.margin-top-1 {
+  margin-top: 1rem;
+}
+
+.margin-right-1 {
+  margin-right: 1rem;
+}
+
+.margin-all-2 {
+  margin: 2rem;
+}
+
+.margin-right-2 {
+  margin-right: 2rem;
+}
+
+.margin-left-2 {
+  margin-left: 2rem;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.font-medium {
+  font-size: 1.4rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.color-white {
+  color: white;
+}
+
+.color-black {
+  color: black;
+}
+
+.background-black {
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=styles.css.map*/
