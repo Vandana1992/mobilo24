@@ -1,0 +1,62 @@
+<mobilo-compare-header></mobilo-compare-header>
+<!--To Do : below needs to be done using routing a sa improvements and it to move it to different component-->
+<div *ngIf="!showFavourites">
+  <section class="flex justify-center">
+    <div class="margin-right-1 cursor-pointer"><a (click)="comparision('topseller')">Top Seller</a></div>
+    <div class="margin-right-1 cursor-pointer"><a (click)="comparision('new')">Neuheiten</a></div>
+    <div class="margin-right-1 cursor-pointer"><a (click)="comparision('discount')">angebote</a></div>
+    <div class="margin-right-1 cursor-pointer"><a (click)="comparision('popular')">Beliebeht</a></div>
+  </section>
+  <section *ngIf="mobileComparisionData.length; else noRecords"
+    class="mobilo-comparision__device-desc justify-space-around align-center">
+    <div *ngFor="let mobileData of mobileComparisionData">
+      <img [src]="getDevice(mobileData.image)" class="mobilo-comparision__device">
+      <div class="flex column">
+        <span>{{mobileData.rating}}</span>
+        <span>{{mobileData.name}}</span>
+        <span><del>{{mobileData.price_reduced}}</del></span>
+        <span>{{mobileData.price}}</span>
+      </div>
+      <button class="background-black color-white cursor-pointer">Bestellen</button>
+      <div>
+        <img *ngIf="!mobileData.favourite; else dislike" src="../../assets/images/favorite.svg"
+          class="mobilo-comparision__likes"
+          (click)="addToFavourites(mobileData)">
+        <ng-template #dislike>
+          <img src="../../assets/images/favorite_filled.svg"
+          class="mobilo-comparision__likes"
+          (click)="removeFromFavourites(mobileData.id)">
+        </ng-template>
+      </div>
+    </div>
+  </section>
+  <ng-template #noRecords>
+    No Records!
+  </ng-template>
+</div>
+
+
+<section *ngIf="showFavourites && favourites.length; else noFavouriteRecord"
+  class="flex column justify-center align-center">
+  <div *ngFor="let mobileData of favourites">
+    <img [src]="getDevice(mobileData.image)" class="mobilo-comparision__device">
+    <div class="flex column">
+      <span>{{mobileData.rating}}</span>
+      <span>{{mobileData.name}}</span>
+      <span><del>{{mobileData.price_reduced}}</del></span>
+      <span>{{mobileData.price}}</span>
+    </div>
+    <button class="background-black color-white cursor-pointer">Bestellen</button>
+    <div>
+      <img src="../../assets/images/favorite_filled.svg"
+        class="mobilo-comparision__likes">
+    </div>
+  </div>
+</section>
+<ng-template #noFavouriteRecord>
+  <div *ngIf="showFavourites && !favourites.length">
+    Sie Sind Aktuelle  nicht eingelobt und haben ein disser sessions....(No Favourites)
+    Click on Mobile logo to add favourites
+  </div>
+</ng-template>
+<mobilo-compare-footer class="background-black color-white"></mobilo-compare-footer>

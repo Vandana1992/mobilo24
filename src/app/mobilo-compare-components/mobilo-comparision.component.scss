@@ -1,0 +1,16 @@
+.mobilo-comparision {
+
+  &__device-desc {
+    display: flex;
+    border: 0.5px solid grey;
+    height: 20rem;
+  }
+
+  &__device {
+    height: 10rem;
+  }
+
+  &__likes {
+    height: 1.2rem;
+  }
+}
